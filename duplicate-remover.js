@@ -113,6 +113,9 @@
 
         // Get the current page number from the URL
         let currentPage = parseInt(new URLSearchParams(window.location.search).get("page"));
+        
+        // Set the timeout value based on the reportOnly setting
+        let timeoutValue = reportOnly ? 0 : 500;
 
         // If the current page is greater than 1, navigate to the previous page after a 500ms delay
         if (currentPage > 1) {
@@ -123,7 +126,7 @@
                 } else if (continuous) {
                     window.location.href = window.location.origin + window.location.pathname + '?page=' + (currentPage - 1);
                 }
-            }, 500);
+            }, timeoutValue);
         } else if (reportOnly) {
             // When it gets to the first page, download the duplicate report as a CSV
             let csv = convertToCSV(duplicateReport);
