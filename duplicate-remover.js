@@ -25,12 +25,20 @@
         let month = new Date(datePart[2] + " 1, 2000").getMonth();
         let year = parseInt(datePart[3]);
         let timeParts = parts[1].split(":");
+        let hours = parseInt(timeParts[0]);
+        let minutes = parseInt(timeParts[1].substring(0, 2));
+        let isPM = timeParts[1].toLowerCase().includes("pm");
+        if (isPM && hours !== 12) {
+            hours += 12;
+        } else if (!isPM && hours === 12) {
+            hours = 0;
+        }
         let date = new Date();
         date.setFullYear(year);
         date.setMonth(month);
         date.setDate(day);
-        date.setHours(parseInt(timeParts[0]));
-        date.setMinutes(parseInt(timeParts[1]));
+        date.setHours(hours);
+        date.setMinutes(minutes);
         return date;
     }
 
@@ -113,7 +121,7 @@
 
         // Get the current page number from the URL
         let currentPage = parseInt(new URLSearchParams(window.location.search).get("page"));
-        
+
         // Set the timeout value based on the reportOnly setting
         let timeoutValue = reportOnly ? 0 : 500;
 
