@@ -21,14 +21,17 @@ The script offers the following configuration options:
 
 1. Install the Tampermonkey browser extension.
 2. Create a new Tampermonkey script and replace its content with the provided script.
-3. Save the script, then navigate to your Last.fm library page (e.g., `https://www.last.fm/user/username123/library`).
-4. The script will run automatically and process the library pages according to the specified configuration options.
+3. Add your Last.fm username in the script @match directive.
+4. Save the script, then navigate to your Last.fm library page (e.g., `https://www.last.fm/user/username123/library`).
+5. The script will run automatically and process the library pages according to the specified configuration options.
 
 ## Usage
 
 The script will run automatically when you visit a Last.fm library page that matches the specified URL pattern. It will process the library pages according to the specified configuration options, either deleting duplicates and/or creating a report of detected duplicates.
 
 If `reportOnly` is set to `true`, the script will save a list of detected duplicates to sessionStorage and download it as a CSV file when it reaches the first page. If `reportOnly` is set to `false`, the script will delete duplicates without creating a report.
+
+If running this multiple times, clear your session storage or remove the `duplicateReport` item.
 
 In continuous mode, the script will navigate back from the last page to the first one, processing each library page automatically. If you want to process only the current library page, set `continuous` to `false`.
 
