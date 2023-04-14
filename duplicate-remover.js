@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  Check for duplicate songs and delete them or perform a dry run, then navigate to the previous page
 // @author       You
-// @match        https://www.last.fm/user/ryanuk86/library*
+// @match        https://www.last.fm/user/username123/library*
 // @grant        none
 // @require      http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
