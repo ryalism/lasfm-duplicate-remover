@@ -43,7 +43,8 @@
     function convertToCSV(duplicateReport) {
         let csv = 'Title,Artist,Timestamp\n';
         duplicateReport.forEach(song => {
-            csv += `"${song.title}","${song.artist}","${song.timestamp.toISOString()}"\n`;
+            let timestamp = new Date(song.timestamp);
+            csv += `"${song.title}","${song.artist}","${timestamp.toISOString()}"\n`;
         });
         return csv;
     }
